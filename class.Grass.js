@@ -1,6 +1,6 @@
-class Grass extends KendaniEak{
+class Grass extends KendaniEak {
     constructor(x, y) {
-        super(x,y);
+        super(x, y);
         this.multiply = 0
         this.directions = [
             [this.x - 1, this.y - 1],

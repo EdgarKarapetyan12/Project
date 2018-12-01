@@ -1,27 +1,18 @@
 class Vozni extends KendaniEak {
-    constructor(x, y, ser) {
+    constructor(x, y) {
         super(x, y);
         this.energy = 5;
         this.directions = [];
         this.index = 2;
-        if (ser == 0) {
-            this.ser = 'arakan';
-        }
-        else {
-            this.ser = 'igakan';
-        }
+      
     }
     yntrelVandak(ch) {
         this.stanalNorKordinatner();
         return super.yntrelVandak(ch);
     }
     utel() {
-        if (this.ser == 'arakan' && xotakerArr.length > vozniArr.length) {
-            var vandak55 = this.yntrelVandak(5.5);
-            if (vandak55) {
-                this.bazmanal();
-
-            }
+        if (this.energy > 18) {
+            this.bazmanal();
         }
 
         var vandak4 = random(this.yntrelVandak(4));
@@ -36,7 +27,7 @@ class Vozni extends KendaniEak {
                     sunkArr.splice(i, 1);
                 }
             }
-
+          
         }
         else {
             var vandak1 = random(this.yntrelVandak(1));
@@ -83,6 +74,7 @@ class Vozni extends KendaniEak {
         }
     }
     bazmanal() {
+        this.energy = 5;
         var dir = random(this.yntrelVandak(0));
         if (dir) {
             var norvozni = new Vozni(dir[0], dir[1]);

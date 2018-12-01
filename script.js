@@ -79,10 +79,10 @@ function setup() {
                 gishatichArr.push(new Gishatich(x, y));
             }
             else if (matrix[y][x] == 4) {
-                sunkArr.push(new sunk(x, y));
+                sunkArr.push(new Sunk(x, y));
             }
             else if (matrix[y][x] == 5) {
-                vozniArr.push(new vozni(x, y));
+                vozniArr.push(new Vozni(x, y));
             }
         }
     }
