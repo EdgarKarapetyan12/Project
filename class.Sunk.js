@@ -1,4 +1,5 @@
-class Sunk extends KendaniEak {
+var KendaniEak = require("./class.KendaniEak.js");
+module.exports =  class Sunk extends KendaniEak {
     constructor(x, y) {
         super(x, y);
         this.multiply = 0

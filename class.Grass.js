@@ -1,4 +1,6 @@
-class Grass extends KendaniEak {
+var KendaniEak = require("./class.KendaniEak.js");
+
+module.exports = class Grass extends KendaniEak {
     constructor(x, y) {
         super(x, y);
         this.multiply = 0

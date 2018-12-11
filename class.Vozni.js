@@ -1,4 +1,5 @@
-class Vozni extends KendaniEak {
+var KendaniEak = require("./class.KendaniEak.js");
+module.exports =  class Vozni extends KendaniEak {
     constructor(x, y) {
         super(x, y);
         this.energy = 5;
