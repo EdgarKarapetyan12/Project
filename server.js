@@ -19,7 +19,7 @@ var Xotaker = require("./class.Xotaker.js");
 var Gishatich = require("./class.Gishatich.js");
 var Sunk = require("./class.Sunk.js");
 var Vozni = require("./class.Vozni.js");
-var matrix = [];
+ matrix = [];
 var n = 50;
 var m = 50;
 
@@ -70,11 +70,11 @@ for (var z = 0; z < qanak5; ++z) {
 }
 
 
-var grassArr = [];
-var xotakerArr = [];
-var gishatichArr = [];
-var sunkArr = [];
-var vozniArr = [];
+ grassArr = [];
+ xotakerArr = [];
+ gishatichArr = [];
+ sunkArr = [];
+ vozniArr = [];
 
 
 
@@ -118,3 +118,4 @@ function drawServerayin() {
 
 setInterval(drawServerayin, 1000);
 
+socket.emit("matrix",matrix)

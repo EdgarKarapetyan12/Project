@@ -13,7 +13,8 @@ module.exports =  class Xotaker extends KendaniEak {
         if (4 * xotakerArr.length > grassArr.length) {
             this.energy -= 2
         }
-        var vandak1 = random(this.yntrelVandak(1));
+        var norVandak = this.yntrelVandak(1)
+        var vandak1 = norVandak[Math.floor(Math.random) * norVandak.length]
 
         if (vandak1) {
             matrix[this.y][this.x] = 0;
