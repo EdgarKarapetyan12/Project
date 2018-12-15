@@ -17,7 +17,8 @@ module.exports =  class Sunk extends KendaniEak {
     }
     bazmanal() {
         this.multiply++;
-        var norVandak = random(this.yntrelVandak(1));
+        var norVandak = this.yntrelVandak(1);
+        var norVandak = norVandak[Math.floor(Math.random) * norVandak.length];
         if (this.multiply >= 8 && norVandak) {
             var norsunk = new Sunk(norVandak[0], norVandak[1]);
             sunkArr.push(norsunk);

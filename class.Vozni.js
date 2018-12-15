@@ -15,8 +15,8 @@ module.exports =  class Vozni extends KendaniEak {
         if (this.energy > 18) {
             this.bazmanal();
         }
-
-        var vandak4 = random(this.yntrelVandak(4));
+        var norVandak = this.yntrelVandak(4);
+        var vandak4 = norVandak[Math.floor(Math.random) * norVandak.length];
         if (vandak4) {
             matrix[this.y][this.x] = 0;
             this.x = vandak4[0];
@@ -31,7 +31,8 @@ module.exports =  class Vozni extends KendaniEak {
           
         }
         else {
-            var vandak1 = random(this.yntrelVandak(1));
+            var norVandak = this.yntrelVandak(1);
+            var vandak1 = norVandak[Math.floor(Math.random) * norVandak.length];
             if (vandak1) {
                 matrix[this.y][this.x] = 0;
                 this.x = vandak1[0]
@@ -52,8 +53,8 @@ module.exports =  class Vozni extends KendaniEak {
     }
     sharjvel() {
 
-
-        var vandak0 = random(this.yntrelVandak(0));
+        var norVandak = this.yntrelVandak(0);
+        var vandak0 = norVandak[Math.floor(Math.random) * norVandak.length];
 
         if (vandak0) {
             matrix[this.y][this.x] = 0;
@@ -76,14 +77,16 @@ module.exports =  class Vozni extends KendaniEak {
     }
     bazmanal() {
         this.energy = 5;
-        var dir = random(this.yntrelVandak(0));
+        var norVandak = this.yntrelVandak(0);
+        var dir = norVandak[Math.floor(Math.random) * norVandak.length];
         if (dir) {
             var norvozni = new Vozni(dir[0], dir[1]);
             vozniArr.push(norvozni);
             matrix[dir[1]][dir[0]] = 5;
         }
         else {
-            var dir = random(this.yntrelVandak(1));
+            var norVandak = this.yntrelVandak(1);
+            var dir = norVandak[Math.floor(Math.random) * norVandak.length];
             if (dir) {
                 if (matrix[dir[1]][dir[0]] == 1) {
                     for (var i in grassArr) {

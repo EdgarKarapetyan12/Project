@@ -19,8 +19,8 @@ module.exports = class Grass extends KendaniEak {
 
     bazmanal() {
         this.multiply++;
-        var norVandak = this.yntrelVandak(0)
-        var norVandak = norVandak[Math.floor(Math.random) * norVandak.length]
+        var norVandak = this.yntrelVandak(0);
+        var norVandak = norVandak[Math.floor(Math.random) * norVandak.length];
         if (this.multiply >= 4 && norVandak) {
             var norXot = new Grass(norVandak[0], norVandak[1]);
             grassArr.push(norXot);

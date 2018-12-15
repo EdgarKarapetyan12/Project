@@ -1,11 +1,11 @@
 var socket = io();
-var n = 50;
-var m = 50;
-
+var n = 20;
+var m = 20;
+var side = 30
 function setup() {
 
     frameRate(8);
-    createCanvas(matrix[0].length * side, matrix.length * side);
+    createCanvas( n* side, m * side);
     background('#acacac');
     noStroke();
 
