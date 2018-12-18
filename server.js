@@ -21,7 +21,7 @@ var Xotaker = require("./class.Xotaker.js");
 var Gishatich = require("./class.Gishatich.js");
 var Sunk = require("./class.Sunk.js");
 var Vozni = require("./class.Vozni.js");
- matrix = [];
+matrix = [];
 var n = 50;
 var m = 50;
 
@@ -72,11 +72,13 @@ for (var z = 0; z < qanak5; ++z) {
 }
 
 
- grassArr = [];
- xotakerArr = [];
- gishatichArr = [];
- sunkArr = [];
- vozniArr = [];
+grassArr = [];
+xotakerArr = [];
+gishatichArr = [];
+sunkArr = [];
+vozniArr = [];
+exanak = "garun";
+
 
 
 
@@ -99,7 +101,6 @@ for (var y = 0; y < matrix.length; y++) {
         }
     }
 }
-
 function drawServerayin() {
     for (var i in grassArr) {
         grassArr[i].bazmanal();
@@ -116,8 +117,24 @@ function drawServerayin() {
     for (var i in vozniArr) {
         vozniArr[i].utel();
     }
+    io.sockets.emit("matrix", matrix)
 }
+//------------------exanak-----------------//
+setInterval(function () {
+    if (exanak == "dzmer") {
+        exanak = "garun";
+    }
+    else if (exanak == "garun") {
+        exanak = "amar";
+    }
+    else if (exanak == "amar") {
+        exanak = "ashun";
+    }
+    else if (exanak == "ashun") {
+        exanak = "dzmer";
+    }
+    io.sockets.emit("exanak", matrix)
+}, 9000);
 
 setInterval(drawServerayin, 1000);
 
-socket.emit("matrix",matrix)

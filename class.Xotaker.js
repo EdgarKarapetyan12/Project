@@ -1,5 +1,5 @@
 var KendaniEak = require("./class.KendaniEak.js");
-module.exports =  class Xotaker extends KendaniEak {
+module.exports = class Xotaker extends KendaniEak {
     constructor(x, y) {
         super(x, y);
         this.energy = 5;
@@ -13,9 +13,8 @@ module.exports =  class Xotaker extends KendaniEak {
         if (4 * xotakerArr.length > grassArr.length) {
             this.energy -= 2
         }
-        var norVandak = this.yntrelVandak(1);
-        var vandak1 = norVandak[Math.floor(Math.random) * norVandak.length];
-
+        var arr = this.yntrelVandak(1);
+        var vandak1 = arr[Math.floor(Math.random() * arr.length)];
         if (vandak1) {
             matrix[this.y][this.x] = 0;
             this.x = vandak1[0]
@@ -27,7 +26,8 @@ module.exports =  class Xotaker extends KendaniEak {
                     grassArr.splice(i, 1);
                 }
             }
-            var vandak4 = random(this.yntrelVandak(4));
+            var arr = this.yntrelVandak(4);
+            var vandak4 = arr[Math.floor(Math.random() * arr.length)];
             if (vandak4) {
                 matrix[this.y][this.x] = 0;
                 this.x = vandak4[0];
@@ -47,10 +47,8 @@ module.exports =  class Xotaker extends KendaniEak {
 
     }
     sharjvel() {
-
-        var norVandak = this.yntrelVandak(0);
-        var vandak0 = norVandak[Math.floor(Math.random) * norVandak.length];
-
+        var arr = this.yntrelVandak(0);
+        var vandak0 = arr[Math.floor(Math.random() * arr.length)];
         if (vandak0) {
             matrix[this.y][this.x] = 0;
             this.x = vandak0[0]
@@ -73,16 +71,16 @@ module.exports =  class Xotaker extends KendaniEak {
     bazmanal() {
         this.energy = 8;
         this.stanalNorKordinatner();
-        var norVandak = this.yntrelVandak(0);
-        var dir = norVandak[Math.floor(Math.random) * norVandak.length];
+        var arr = this.yntrelVandak(0);
+        var dir = arr[Math.floor(Math.random() * arr.length)];
         if (dir) {
             var norXotaker = new Xotaker(dir[0], dir[1]);
             xotakerArr.push(norXotaker);
             matrix[dir[1]][dir[0]] = 2;
         }
         else {
-            var norVandak = this.yntrelVandak(1);
-            var dir = norVandak[Math.floor(Math.random) * norVandak.length];
+            var arr = this.yntrelVandak(1);
+            var dir = arr[Math.floor(Math.random() * arr.length)];
             if (dir) {
                 for (var i in grassArr) {
                     if (grassArr[i].x == dir[0] && grassArr[i].y == dir[1]) {

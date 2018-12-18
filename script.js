@@ -1,17 +1,46 @@
 var socket = io();
-var n = 20;
-var m = 20;
-var side = 30
-function setup() {
+var n = 50;
+var m = 50;
+var side = 10;
+var grasscolor;
+var h1 = document.getElementById("exanak");
 
+function setup() {
     frameRate(8);
-    createCanvas( n* side, m * side);
+    createCanvas(n * side, m * side);
     background('#acacac');
     noStroke();
 
-    
+
 }
+
 function drawMatrix(matrix) {
+    
+    if (exanak == 'amar') {
+        frameRate(11);
+    }
+    else if (exanak == 'dzmer') {
+        frameRate(3);
+    }
+    else {
+        frameRate(5);
+    }
+
+    if (exanak == 'garun') {
+        grasscolor = '#00cc66';
+    }
+    else if (exanak == 'amar') {
+        grasscolor = '#00cc00';
+    }
+    else if (exanak == 'ashun') {
+        grasscolor = '#317e02';
+    }
+    else if (exanak == 'dzmer') {
+        grasscolor = '#b5e3c8';
+    }
+    
+   // h1.innerText = exanak;
+
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 0) {
@@ -19,7 +48,7 @@ function drawMatrix(matrix) {
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 1) {
-                fill("green");
+                fill(grasscolor);
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 2) {
@@ -42,4 +71,4 @@ function drawMatrix(matrix) {
         }
     }
 }
- socket.on("matrix",drawMatrix)
+socket.on("matrix", drawMatrix)

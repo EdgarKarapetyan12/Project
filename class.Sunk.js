@@ -1,5 +1,5 @@
 var KendaniEak = require("./class.KendaniEak.js");
-module.exports =  class Sunk extends KendaniEak {
+module.exports = class Sunk extends KendaniEak {
     constructor(x, y) {
         super(x, y);
         this.multiply = 0
@@ -17,8 +17,8 @@ module.exports =  class Sunk extends KendaniEak {
     }
     bazmanal() {
         this.multiply++;
-        var norVandak = this.yntrelVandak(1);
-        var norVandak = norVandak[Math.floor(Math.random) * norVandak.length];
+        var arr = this.yntrelVandak(1);
+        var norVandak = arr[Math.floor(Math.random() * arr.length)];
         if (this.multiply >= 8 && norVandak) {
             var norsunk = new Sunk(norVandak[0], norVandak[1]);
             sunkArr.push(norsunk);
