@@ -7,6 +7,7 @@ module.exports = class Xotaker extends KendaniEak {
         this.index = 2;
     }
     utel() {
+   
         if (this.energy > 10) {
             this.bazmanal();
         }
@@ -73,6 +74,7 @@ module.exports = class Xotaker extends KendaniEak {
         this.stanalNorKordinatner();
         var arr = this.yntrelVandak(0);
         var dir = arr[Math.floor(Math.random() * arr.length)];
+        xotakerQanakStat++;
         if (dir) {
             var norXotaker = new Xotaker(dir[0], dir[1]);
             xotakerArr.push(norXotaker);

@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+var fs = require("fs");
 
 app.use(express.static("."));
 app.get('/', function (req, res) {
@@ -80,8 +81,6 @@ vozniArr = [];
 exanak = "garun";
 
 
-
-
 for (var y = 0; y < matrix.length; y++) {
     for (var x = 0; x < matrix[y].length; x++) {
         if (matrix[y][x] == 1) {
@@ -120,7 +119,7 @@ function drawServerayin() {
     io.sockets.emit("matrix", matrix)
 }
 //------------------exanak-----------------//
-setInterval(function () {
+function drawExanak() {
     if (exanak == "dzmer") {
         exanak = "garun";
     }
@@ -133,8 +132,22 @@ setInterval(function () {
     else if (exanak == "ashun") {
         exanak = "dzmer";
     }
-    io.sockets.emit("exanak", matrix)
-}, 9000);
+
+    io.sockets.emit("exanak", exanak);
+}
 
 setInterval(drawServerayin, 1000);
+setInterval(drawExanak, 9000);
+setInterval(Stat, 5000);
 
+grassQanakStat = 0;
+xotakerQanakStat = 0;
+gishatichQanakStat = 0;
+vozniQanakStat = 0;
+sunkQanakStat = 0;
+var jsonObj = { "info": [] };
+function Stat() {
+    var file = "stat.json";
+    jsonObj.info.push({"grass qanak": grassQanakStat, "xotaker qanak": xotakerQanakStat, "gishatich qanak": gishatichQanakStat, "vozni qanak": vozniQanakStat, "sunk qanak": sunkQanakStat  });
+    fs.writeFileSync(file, JSON.stringify(jsonObj));
+}

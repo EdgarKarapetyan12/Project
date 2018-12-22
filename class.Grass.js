@@ -4,12 +4,13 @@ module.exports = class Grass extends KendaniEak {
     constructor(x, y) {
         super(x, y);
         this.multiply = 0
-       
+
 
     }
 
     bazmanal() {
         this.multiply++;
+        grassQanakStat++;
         var arr = this.yntrelVandak(0);
         var norVandak = arr[Math.floor(Math.random() * arr.length)];
         if (this.multiply >= 4 && norVandak) {

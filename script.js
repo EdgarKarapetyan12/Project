@@ -3,29 +3,17 @@ var n = 50;
 var m = 50;
 var side = 10;
 var grasscolor;
-var h1 = document.getElementById("exanak");
+var exanak = "garun";
+grasscolor = '#00cc66';
+//var drawExank;
 
 function setup() {
     frameRate(8);
     createCanvas(n * side, m * side);
     background('#acacac');
     noStroke();
-
-
 }
-
-function drawMatrix(matrix) {
-    
-    if (exanak == 'amar') {
-        frameRate(11);
-    }
-    else if (exanak == 'dzmer') {
-        frameRate(3);
-    }
-    else {
-        frameRate(5);
-    }
-
+function drawExank(exanak) {
     if (exanak == 'garun') {
         grasscolor = '#00cc66';
     }
@@ -38,8 +26,9 @@ function drawMatrix(matrix) {
     else if (exanak == 'dzmer') {
         grasscolor = '#b5e3c8';
     }
-    
-   // h1.innerText = exanak;
+
+}
+function drawMatrix(matrix) {
 
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
@@ -71,4 +60,5 @@ function drawMatrix(matrix) {
         }
     }
 }
-socket.on("matrix", drawMatrix)
+socket.on("matrix", drawMatrix);
+socket.on("exanak", drawExank);

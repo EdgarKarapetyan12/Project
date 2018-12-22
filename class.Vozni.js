@@ -77,6 +77,7 @@ module.exports = class Vozni extends KendaniEak {
         this.energy = 5;
         var arr = this.yntrelVandak(0);
         var dir = arr[Math.floor(Math.random() * arr.length)];
+        vozniQanakStat++;
         if (dir) {
             var norvozni = new Vozni(dir[0], dir[1]);
             vozniArr.push(norvozni);

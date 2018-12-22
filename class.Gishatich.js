@@ -83,7 +83,7 @@ module.exports = class Gishatich extends KendaniEak {
         this.energy = 5;
         var arr = this.yntrelVandak(0);
         var dir = arr[Math.floor(Math.random() * arr.length)];
-
+        gishatichQanakStat++;
         if (dir) {
             var norGishatich = new Gishatich(dir[0], dir[1]);
             gishatichArr.push(norGishatich);
