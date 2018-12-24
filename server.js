@@ -34,7 +34,7 @@ for (var y = 0; y <= n; y++) {
         matrix[y][x] = 0;
     }
 }
-var tokos1 = 50;
+var tokos1 = 100;
 var tokos2 = 3;
 var tokos3 = 2;
 var tokos4 = 4;
@@ -79,7 +79,7 @@ gishatichArr = [];
 sunkArr = [];
 vozniArr = [];
 exanak = "garun";
-
+Mlenght = [];
 
 for (var y = 0; y < matrix.length; y++) {
     for (var x = 0; x < matrix[y].length; x++) {
@@ -118,7 +118,7 @@ function drawServerayin() {
     }
     io.sockets.emit("matrix", matrix)
 }
-//------------------exanak-----------------//
+
 function drawExanak() {
     if (exanak == "dzmer") {
         exanak = "garun";

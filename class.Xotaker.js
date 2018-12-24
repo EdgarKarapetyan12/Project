@@ -7,45 +7,87 @@ module.exports = class Xotaker extends KendaniEak {
         this.index = 2;
     }
     utel() {
-   
-        if (this.energy > 10) {
-            this.bazmanal();
-        }
-        if (4 * xotakerArr.length > grassArr.length) {
-            this.energy -= 2
-        }
-        var arr = this.yntrelVandak(1);
-        var vandak1 = arr[Math.floor(Math.random() * arr.length)];
-        if (vandak1) {
-            matrix[this.y][this.x] = 0;
-            this.x = vandak1[0]
-            this.y = vandak1[1]
-            matrix[this.y][this.x] = 2;
-            this.energy++;
-            for (var i in grassArr) {
-                if (grassArr[i].x == this.x && grassArr[i].y == this.y) {
-                    grassArr.splice(i, 1);
-                }
-            }
-            var arr = this.yntrelVandak(4);
-            var vandak4 = arr[Math.floor(Math.random() * arr.length)];
-            if (vandak4) {
-                matrix[this.y][this.x] = 0;
-                this.x = vandak4[0];
-                this.y = vandak4[1];
-                matrix[this.y][this.x] = 0
+        if (exanak == 'dzmer') {
+            if (this.x == Mlenght && this.y == 0) {
                 this.mahanal();
-                for (var i in sunkArr) {
-                    if (sunkArr[i].x == this.x && sunkArr[i].y == this.y) {
-                        sunkArr.splice(i, 1);
+
+            }
+            else {
+                var norvandak = [this.x + 1, this.y - 1];
+                if (matrix[norvandak[1]] && matrix[norvandak[1]][norvandak[0]] && matrix[norvandak[1]][norvandak[0]] < 2) {
+                    matrix[this.y][this.x] = 0;
+                    this.x = norvandak[0];
+                    this.y = norvandak[1];
+                }
+                else {
+                    norvandak = [this.x + 1, this.y];
+                    if (matrix[norvandak[1]] && matrix[norvandak[1]][norvandak[0]] && matrix[norvandak[1]][norvandak[0]] < 2) {
+                        matrix[this.y][this.x] = 0;
+                        this.x = norvandak[0];
+                        this.y = norvandak[1];
+                    }
+                    else {
+                        norvandak = [this.x, this.y - 1];
+                        if (matrix[norvandak[1]] && matrix[norvandak[1]][norvandak[0]] && matrix[norvandak[1]][norvandak[0]] < 2) {
+                            matrix[this.y][this.x] = 0;
+                            this.x = norvandak[0];
+                            this.y = norvandak[1];
+                        }
                     }
                 }
             }
+            if (matrix[this.y][this.x] == 1) {
+                for (var i in grassArr) {
+                    if (grassArr[i].x == this.x && grassArr[i].y == this.y) {
+                        grassArr.splice(i, 1);
+                        break;
+                    }
+                }
+            }
+            matrix[this.y][this.x] = 2;
         }
         else {
-            this.sharjvel();
+            if (this.energy > 10) {
+                this.bazmanal();
+            }
+            if (this.energy > 10) {
+                this.bazmanal();
+            }
+            if (4 * xotakerArr.length > grassArr.length) {
+                this.energy -= 2
+            }
+            var arr = this.yntrelVandak(1);
+            var vandak1 = arr[Math.floor(Math.random() * arr.length)];
+            if (vandak1) {
+                matrix[this.y][this.x] = 0;
+                this.x = vandak1[0]
+                this.y = vandak1[1]
+                matrix[this.y][this.x] = 2;
+                this.energy++;
+                for (var i in grassArr) {
+                    if (grassArr[i].x == this.x && grassArr[i].y == this.y) {
+                        grassArr.splice(i, 1);
+                    }
+                }
+                var arr = this.yntrelVandak(4);
+                var vandak4 = arr[Math.floor(Math.random() * arr.length)];
+                if (vandak4) {
+                    matrix[this.y][this.x] = 0;
+                    this.x = vandak4[0];
+                    this.y = vandak4[1];
+                    matrix[this.y][this.x] = 0
+                    this.mahanal();
+                    for (var i in sunkArr) {
+                        if (sunkArr[i].x == this.x && sunkArr[i].y == this.y) {
+                            sunkArr.splice(i, 1);
+                        }
+                    }
+                }
+            }
+            else {
+                this.sharjvel();
+            }
         }
-
     }
     sharjvel() {
         var arr = this.yntrelVandak(0);
